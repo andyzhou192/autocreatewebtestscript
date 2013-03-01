@@ -1,0 +1,9 @@
+	/**
+      * $_TESTCASE_DESCRIPTION_
+      * @author $_AUTHOR_
+    **/
+	@Test
+	public void $_TESTCASE_NAME_() {
+		$_TESTCASE_CONTENT_
+	}
+}

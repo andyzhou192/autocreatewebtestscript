@@ -1,0 +1,47 @@
+package $_PACKAGE_;
+
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+import com.taobao.automanx.engine.Browser;
+import com.taobao.automanx.util.BrowserUtil;
+import com.taobao.itest.annotation.ITestDataSet;
+import com.taobao.itest.annotation.ITestSpringContext;
+import com.taobao.webUI.detail.WebUIBaseCase;
+
+/**
+ * $_CLASS_DESCRIPTION_
+ **/
+
+//@ITestDataSet(locations = { "ExampleTest.xls"},dsNames = { "myicdb7"}, teardownOperation = "REFRESH")
+//@ITestSpringContext(locations = { "/datasource-demo.xml"})
+public class $_CLASS_NAME_ extends WebUIBaseCase {
+	// 在运行excel里的delete_sql和init_sql后运行，一个在运行excel里的class只运行一次
+	@BeforeClass
+	public static void class_initialize() {
+		BrowserUtil.close_all_ies();
+	}
+	// 在运行excel里的reback_sql前运行，一个class只运行一次
+	@AfterClass
+	public static void class_cleanup() {
+		BrowserUtil.close_ies();
+	}
+	//代码执行过程，最后关闭ie
+	public void process(String username, String password) {
+		Browser ie =  login(username, password);
+
+		ie.close();
+	}
+	
+	/**
+      * $_TESTCASE_DESCRIPTION_
+      * @author $_AUTHOR_
+    **/
+	@Test
+	public void $_TESTCASE_NAME_() {
+		String param_用户名 = new String("andy-c");
+		String param_密码 = new String("taobao1234");
+		process(param_用户名, param_密码);
+	}
+}
